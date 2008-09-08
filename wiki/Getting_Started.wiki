@@ -1,8 +1,17 @@
-#summary One-sentence summary of this page.
+#Learn how to use each function.
 
 = How To Use CXPDO Functions =
 
 Each of the added functions CXPDO provides takes a series of parameters/arguments and returns a PDO Statement Object. Here is a list of all variables that CXPDO requires and what they are supposed to hold/be.
+
+*$conditions* = _Optional_ WHERE conditions for SQL query. Pass as an array or array of arrays:
+{{{
+$conditions = array(
+'id' => 2,
+'name' => array('sam', 'bob', 'john')
+);
+//Creates: WHERE id = '2' OR 'name' in('sam', 'bob', 'john')
+
 
 *$tables* = string or array of table names that the query is affecting. In some cases only one table name is allowed.
 
@@ -19,3 +28,23 @@ Each of the added functions CXPDO provides takes a series of parameters/argument
   * $data = Array
   * $replace = TRUE/FALSE
   * $return = TRUE/FALSE
+
+== Replace($tables, $data, $return) ==
+Alias for insert();
+
+
+== Insert($tables, $data, $replace, $return) ==
+
+  * $tables = Array
+  * $data = Array
+  * $replace = TRUE/FALSE
+  * $return = TRUE/FALSE
+
+
+== update($tables, $data, $conditions, $return) ==
+
+  * $tables = Array
+  * $data = Array
+  * $conditions = NULL/Array
+  * $return = TRUE/FALSE
+
