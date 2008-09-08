@@ -1,0 +1,21 @@
+#summary One-sentence summary of this page.
+
+= How To Use CXPDO Functions =
+
+Each of the added functions CXPDO provides takes a series of parameters/arguments and returns a PDO Statement Object. Here is a list of all variables that CXPDO requires and what they are supposed to hold/be.
+
+*$tables* = string or array of table names that the query is affecting. In some cases only one table name is allowed.
+
+*$data* = array where $key => $element. $key = column name and $element = data
+
+*$replace* = Should the term REPLACE be used instead of INSERT? TRUE/FALSE
+
+*$return* = TRUE = DO NOT QUERY DB! Create query string and return it. (Default) FALSE = query db and return result. This is very handy for checking syntax and learning how to write SQL.
+
+
+== Insert($tables, $data, $replace, $return) ==
+
+  * $tables = Array
+  * $data = Array
+  * $replace = TRUE/FALSE
+  * $return = TRUE/FALSE
