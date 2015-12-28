@@ -1,0 +1,68 @@
+#Learn how to use each function.
+
+# How To Use CXPDO Functions #
+
+Each of the added functions CXPDO provides takes a series of parameters/arguments and returns a PDO Statement Object. Here is a list of all variables that CXPDO requires and what they are supposed to hold/be.
+
+**$conditions** = _Optional_ WHERE conditions for SQL query. Pass as an array or array of arrays:
+```
+$conditions = array(
+'id' => 2,
+'name' => array('sam', 'bob', 'john')
+);
+//Creates: WHERE id = '2' OR 'name' in('sam', 'bob', 'john')
+```
+
+**$tables** = string or array of table names that the query is affecting. In some cases only one table name is allowed.
+
+**$data** = array where $key => $element. $key = column name and $element = data. For SELECT() function data contains an array of values about the query.
+
+**$replace** = Should the term REPLACE be used instead of INSERT? TRUE/FALSE
+
+**$return** = TRUE = DO NOT QUERY DB! Create query string and return it. (Default) FALSE = query db and return result. This is very handy for checking syntax and learning how to write SQL.
+
+
+## Insert($tables, $data, $replace, $return) ##
+
+  * $tables = Array
+  * $data = Array
+  * $replace = TRUE/FALSE
+  * $return = TRUE/FALSE
+
+## Replace($tables, $data, $return) ##
+Alias for insert();
+
+
+## update($tables, $data, $conditions, $return) ##
+
+  * $tables = Array
+  * $data = Array
+  * $conditions = NULL/Array
+  * $return = TRUE/FALSE
+
+
+## delete($tables, $conditions, $return) ##
+
+  * $tables = Array
+  * $conditions = NULL/Array
+  * $return = TRUE/FALSE
+
+
+## count($tables, $conditions, $return) ##
+
+  * $tables = Array
+  * $conditions = NULL/Array
+  * $return = TRUE/FALSE
+
+
+
+# select($data, $return) #
+
+  * $data['tables'] = String/Array
+  * $data['joins'] = NULL/Array
+  * $data['conditions'] = NULL/Array
+  * $data['group'] = NULL/Array
+  * $data['order'] = NULL/Array
+  * $data['limit'] = NULL/INT/String
+  * $data['offset'] = NULL/INT/String
+  * $data['columns'] = NULL/Array
